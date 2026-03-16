@@ -1,21 +1,25 @@
 import Navbar from "../components/Navbar"
-import Hero from "../components/Hero"
 import DomainSearch from "../components/DomainSearch"
-import Testimonials from "../components/Testimonials"
-import FAQ from "../components/FAQ"
 import Footer from "../components/Footer"
 
-export default function Home(){
+export default function Domains(){
 
 return(
 
 <div>
 
 <Navbar/>
-<Hero/>
+
+<section className="py-24 text-center">
+
+<h1 className="text-5xl font-bold mb-10">
+Find Your Perfect Domain
+</h1>
+
 <DomainSearch/>
-<Testimonials/>
-<FAQ/>
+
+</section>
+
 <Footer/>
 
 </div>

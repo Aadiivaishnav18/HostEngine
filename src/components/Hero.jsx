@@ -1,33 +1,40 @@
-export default function Hero(){
+import { motion } from "framer-motion"
 
-return(
+export default function Hero() {
 
-<section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-32">
+  return (
 
-<div className="max-w-6xl mx-auto text-center">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
 
-<h1 className="text-5xl font-bold mb-6">
+      <motion.h1
+      initial={{y:-50,opacity:0}}
+      animate={{y:0,opacity:1}}
+      transition={{duration:1}}
+      className="text-6xl font-bold">
 
-Fast & Secure Web Hosting
+        Super Fast & Secure cPanel Hosting
 
-</h1>
+      </motion.h1>
 
-<p className="text-lg mb-8">
+      <p className="mt-6 text-lg text-gray-400 max-w-2xl">
 
-Launch your website with lightning fast servers.
+        Launch your website with lightning-fast hosting and powerful control panel.
 
-</p>
+      </p>
 
-<button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold">
+      <div className="mt-8 flex gap-6">
 
-Start Hosting
+        <button className="px-6 py-3 bg-blue-600 rounded-lg text-white hover:scale-105 transition">
+          Get Started
+        </button>
 
-</button>
+        <button className="px-6 py-3 border rounded-lg hover:scale-105 transition">
+          View Pricing
+        </button>
 
-</div>
+      </div>
 
-</section>
+    </section>
 
-)
-
+  )
 }

@@ -1,14 +1,20 @@
+import { useState } from "react"
+import { useAuth } from "../context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
 export default function Login(){
 
-const navigate=useNavigate()
+const { login } = useAuth()
+const navigate = useNavigate()
 
-function handleLogin(e){
+const [email,setEmail] = useState("")
+const [password,setPassword] = useState("")
+
+const handleSubmit = (e)=>{
 
 e.preventDefault()
 
-localStorage.setItem("user","true")
+login(email)
 
 navigate("/dashboard")
 
@@ -16,18 +22,31 @@ navigate("/dashboard")
 
 return(
 
-<div className="flex justify-center items-center h-screen">
+<div className="min-h-screen flex items-center justify-center">
 
-<form onSubmit={handleLogin} className="border p-8">
+<form onSubmit={handleSubmit} className="p-8 border rounded-xl w-96">
 
-<h2 className="text-2xl mb-4">Login</h2>
-
-<input className="border p-2 mb-4 w-full" placeholder="Email"/>
-
-<input className="border p-2 mb-4 w-full" type="password" placeholder="Password"/>
-
-<button className="bg-blue-600 text-white px-4 py-2 w-full">
+<h2 className="text-3xl mb-6 text-center">
 Login
+</h2>
+
+<input
+type="email"
+placeholder="Email"
+className="w-full p-3 border mb-4"
+onChange={(e)=>setEmail(e.target.value)}
+/>
+
+<input
+type="password"
+placeholder="Password"
+className="w-full p-3 border mb-4"
+/>
+
+<button className="w-full bg-blue-600 text-white py-3 rounded">
+
+Login
+
 </button>
 
 </form>

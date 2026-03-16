@@ -1,58 +1,37 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-// Context
-import { AuthContext } from "./context/AuthContext";
+import Home from "./pages/Home"
+import Pricing from "./pages/Pricing"
+import Feature from "./pages/Feature"
+import Domains from "./pages/Domains"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import Dashboard from "./pages/Dashboard"
+import ForgetPassword from "./pages/ForgetPassword"
 
-// Pages
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+function App(){
 
-// Dashboard Pages
-import DashboardHome from "./dashboard/DashboardHome";
-import MyHosting from "./dashboard/MyHosting";
-import Domains from "./dashboard/Domains";
-import Billing from "./dashboard/Billing";
+return(
 
-function App() {
+<BrowserRouter>
 
-  return (
+<Routes>
 
-    <AuthContext.Provider value={{}}>
+<Route path="/" element={<Home/>}/>
+<Route path="/pricing" element={<Pricing/>}/>
+<Route path="/features" element={<Feature/>}/>
+<Route path="/domains" element={<Domains/>}/>
+<Route path="/login" element={<Login/>}/>
+<Route path="/register" element={<Register/>}/>
+<Route path="/forgot-password" element={<ForgetPassword/>}/>
+<Route path="/dashboard" element={<Dashboard/>}/>
 
-      <BrowserRouter>
+</Routes>
 
-        <Routes>
+</BrowserRouter>
 
-          {/* Landing Website */}
-          <Route path="/" element={<Home />} />
-
-          {/* Authentication */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-
-          {/* Dashboard Layout */}
-          <Route path="/dashboard" element={<Dashboard />}>
-
-            <Route index element={<DashboardHome />} />
-
-            <Route path="hosting" element={<MyHosting />} />
-
-            <Route path="domains" element={<Domains />} />
-
-            <Route path="billing" element={<Billing />} />
-
-          </Route>
-
-        </Routes>
-
-      </BrowserRouter>
-
-    </AuthContext.Provider>
-
-  );
+)
 
 }
 
-export default App;
+export default App
